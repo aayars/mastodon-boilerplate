@@ -22,13 +22,16 @@ Follow Docker's instructions for installing from a Debian repository.
 
 After installing Docker, install Docker Compose.
 
-  apt-get install docker-compose
+```sh
+apt-get install docker-compose
+```
 
 Create a service user in the "sudo" and "docker" groups
 
-  adduser mastodon
-  usermod -G sudo,docker mastodon
-
+```sh
+adduser mastodon
+usermod -G sudo,docker mastodon
+```
 
 ## Object storage and frontend cache.
 
@@ -45,9 +48,9 @@ If you aren't going to be running under a custom domain name, this step can be s
 
 Register a new domain name with your registrar of choice, and set up a new zone with your hosting provider.
 
-Create A and AAAA records for the Docker host. Each record type is required (for the letsencrypt challenge). This will be the name of your Mastodon instance. *The name may NOT be changed later*, so make sure you really like it!
+Create *A* and *AAAA* records for the Docker host. Each record type is required (for the letsencrypt challenge). This will be the name of your Mastodon instance. *The name may NOT be changed later*, so make sure you really like it!
 
-If desired, add a subdomain for the distributed frontend cache (e.g. files.example.org) and any other services (mail?) you'll be running.
+If desired, add a subdomain for the distributed frontend cache (e.g. `files.example.org`) and any other services (mail?) you'll be running.
 
 Verify the zone is resolving correctly, globally, before continuing. A good tool for this is https://dnschecker.org/
 
@@ -56,44 +59,56 @@ Verify the zone is resolving correctly, globally, before continuing. A good tool
 
 Install git, and clone this very repo.
 
-  su - mastodon
-  sudo apt-get git
-  git clone *{this very repo url}*
-  cd *{this very repo}*
+```sh
+su - mastodon
+sudo apt-get git
+git clone https://github.com/aayars/mastodon-boilerplate.git
+cd mastodon-boilerplate
+```
 
 
 ## Bootstrap nginx and SSL
 
 Initially based on https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
 
-  cd provisioning
+```sh
+cd provisioning
+```
 
 Edit init-letsencrypt.sh. Insert your domain and other information, and run the script.
 
-  ./init-letsencrypt.sh
+```sh
+./init-letsencrypt.sh
+```
 
 Shut down the temporary Compose instances.
 
-  docker-compose down
-  cd ..
+```sh
+docker-compose down
+cd ..
+```
 
 
 ## Mastodon itself
 
 Use the official Mastodon Docker image to generate a config. Run Mastodon setup, and answer the interactive prompts.
 
-  docker-compose run --rm web bundle exec rake mastodon:setup
+```sh
+docker-compose run --rm web bundle exec rake mastodon:setup
+```
 
 Answer "Yes" when prompted to set up a single-user instance. When prompted for SMTP server settings, specify localhost for the mail server, and skip testing. These instructions do not provide for email capability.
 
 Paste the new config into .env.production, and start up the whole cluster in daemon mode.
 
-  docker-compose up -d
+```sh
+docker-compose up -d
+```
 
 If the stars aligned, you should have a running Mastodon instance with SSL support!
 
-Helpful operational and troubleshooting commands:
+Helpful operational and troubleshooting commands (while in the `mastodon-boilerplate` directory):
 
-To view cluster status: docker-compose ps
-To tail service logs (e.g. web): docker-compose logs -f web
-To shut everything down: docker-compose down
+To view cluster status: `docker-compose ps`
+To tail service logs (e.g. web): `docker-compose logs -f web`
+To shut everything down: `docker-compose down`
