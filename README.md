@@ -1,4 +1,4 @@
-## My Very Particular Minimally Viable Docker Mastodon Setup
+## My Very Particular Minimally-Viable Docker Mastodon Setup
 
 Stop. Look at the date on this `README`, if there is one. If it's more than a year old, reconsider the common wisdom of continuing.
 
