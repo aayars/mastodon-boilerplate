@@ -46,7 +46,7 @@ Set up a distributed frontend cache, such as CloudFront, in front of the bucket.
 
 Register a new domain name with your registrar of choice, and set up a new zone with your hosting provider.
 
-Create *A* and *AAAA* records for the Docker host. Each record type is required (for the *letsencrypt*( challenge). This will be the name of your Mastodon instance. *The name may NOT be changed later*, so make sure you really like it!
+Create *A* and *AAAA* records for the Docker host. Each record type is required (for the *letsencrypt* challenge). This will be the name of your Mastodon instance. *The name may NOT be changed later*, so make sure you really like it!
 
 If desired, add a subdomain for the distributed frontend cache (e.g. `files.example.com`) and any other services (mail?) you'll be running.
 
