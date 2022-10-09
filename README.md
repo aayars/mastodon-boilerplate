@@ -124,13 +124,13 @@ To view cluster status: `docker-compose ps`.
 $ docker-compose ps
          Name                        Command                  State                        Ports
 ------------------------------------------------------------------------------------------------------------------
-exampleorg_certbot_1     /bin/sh -c trap exit TERM; ...   Up             443/tcp, 80/tcp
-exampleorg_db_1          docker-entrypoint.sh postgres    Up (healthy)
-exampleorg_nginx_1       /docker-entrypoint.sh /bin ...   Up             0.0.0.0:443->443/tcp, 0.0.0.0:80->80/tcp
-exampleorg_redis_1       docker-entrypoint.sh redis ...   Up (healthy)
-exampleorg_sidekiq_1     /usr/bin/tini -- bundle ex ...   Up (healthy)   3000/tcp, 4000/tcp
-exampleorg_streaming_1   /usr/bin/tini -- node ./st ...   Up (healthy)   3000/tcp, 4000/tcp
-exampleorg_web_1         /usr/bin/tini -- bash -c r ...   Up (healthy)   3000/tcp, 4000/tcp
+examplecom_certbot_1     /bin/sh -c trap exit TERM; ...   Up             443/tcp, 80/tcp
+examplecom_db_1          docker-entrypoint.sh postgres    Up (healthy)
+examplecom_nginx_1       /docker-entrypoint.sh /bin ...   Up             0.0.0.0:443->443/tcp, 0.0.0.0:80->80/tcp
+examplecom_redis_1       docker-entrypoint.sh redis ...   Up (healthy)
+examplecom_sidekiq_1     /usr/bin/tini -- bundle ex ...   Up (healthy)   3000/tcp, 4000/tcp
+examplecom_streaming_1   /usr/bin/tini -- node ./st ...   Up (healthy)   3000/tcp, 4000/tcp
+examplecom_web_1         /usr/bin/tini -- bash -c r ...   Up (healthy)   3000/tcp, 4000/tcp
 ```
 
 To tail service logs for a named service (e.g. `sidekiq`, `streaming`, `web`): `docker-compose logs -f web`
