@@ -98,7 +98,7 @@ cd ..
 
 These steps assume you are back in the top-level directory of the `mastodon-boilerplate` repo.
 
-Just as in the previous step (but with an additional section for the SSL settings), edit `nginx/nginx.conf` and replace all instances `example.com` with your own site's domain name.
+Just as in the previous step (but with an additional section for the SSL settings), edit `nginx/nginx.conf` and replace all occurrences of `example.com` with your own site's domain name.
 
 Use the official Mastodon Docker image to generate a config. Run Mastodon setup, and answer the interactive prompts.
 
