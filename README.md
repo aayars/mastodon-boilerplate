@@ -12,8 +12,6 @@ This repo contains instructions with boilerplate for setting up a single-user Ma
 
 ## Host OS
 
-If you don't need to set up a server for running Docker, this step can be skipped.
-
 Start up a VM (VPS) of the latest stable Debian, on your hosting provider of choice.
 
 Secure the new host's ports, and install Docker.
@@ -39,9 +37,7 @@ usermod -G sudo,docker mastodon
 
 ## Object storage and frontend cache.
 
-If you aren't going to use cloud object storage (e.g. S3, Wasabi), this step can be skipped.
-
-Set up a new object storage bucket with your cloud provider of choice. Generate and make note of a shared key and secret for API access.
+Set up a new object storage bucket (S3) with your cloud provider of choice. Generate and make note of a shared key and secret for API access.
 
 Set up a distributed frontend cache, such as CloudFront, in front of the bucket. This will be where media files are served from.
 
@@ -67,7 +63,7 @@ Install `git`, and clone `mastodon-boilerplate` (this very repo) into a director
 su - mastodon
 sudo apt-get git
 git clone https://github.com/aayars/mastodon-boilerplate.git example.com
-cd mastodon-boilerplate
+cd example.com
 ```
 
 
@@ -122,7 +118,7 @@ docker-compose up -d
 
 If the stars aligned, you should have a running Mastodon instance with SSL support!
 
-Helpful operational and troubleshooting commands (while in the `mastodon-boilerplate` directory):
+Helpful operational and troubleshooting commands (while in the top-level directory of the `mastodon-boilerplate` repo):
 
 To view cluster status: `docker-compose ps`.
 
@@ -139,5 +135,6 @@ exampleorg_streaming_1   /usr/bin/tini -- node ./st ...   Up (healthy)   3000/tc
 exampleorg_web_1         /usr/bin/tini -- bash -c r ...   Up (healthy)   3000/tcp, 4000/tcp
 ```
 
-To tail service logs (e.g. web): `docker-compose logs -f web`
-To shut everything down: `docker-compose down`
+To tail service logs for a named service (e.g. sidekiq, streaming, web): `docker-compose logs -f web`
+
+To shut down everything: `docker-compose down`
