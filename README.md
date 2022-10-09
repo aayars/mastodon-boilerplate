@@ -35,7 +35,7 @@ adduser mastodon
 usermod -G sudo,docker mastodon
 ```
 
-### Object storage and frontend cache.
+### Object storage and frontend cache
 
 Set up a new object storage bucket (S3) with your cloud provider of choice. Generate and make note of a shared key and secret for API access.
 
