@@ -70,7 +70,7 @@ cd example.com
 Initially based on:
   https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71S
 
-This step starts temporary `nginx` and `certbot` instances, with which we shall try to get a signed SSL certificate issued by *letsencrypt*.
+This step starts temporary `nginx` and `certbot` instances to get a signed SSL certificate from *letsencrypt*.
 
 *A* and *AAAA* records must be live and correct at this stage, in order to pass *letsencrypt* challenges.
 
