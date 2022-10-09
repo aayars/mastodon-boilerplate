@@ -1,4 +1,4 @@
-# My Very Particular Minimally Viable Docker Mastodon Setup
+## My Very Particular Minimally Viable Docker Mastodon Setup
 
 Stop. Look at the date on this `README`, if there is one. If it's more than a year old, reconsider the common wisdom of continuing.
 
@@ -10,7 +10,7 @@ This repo contains instructions with boilerplate for setting up a single-user Ma
 * Does not send mail.
 
 
-## Host OS
+### Host OS
 
 Start up a VM (VPS) of the latest stable Debian, on your hosting provider of choice.
 
@@ -35,14 +35,14 @@ adduser mastodon
 usermod -G sudo,docker mastodon
 ```
 
-## Object storage and frontend cache.
+### Object storage and frontend cache.
 
 Set up a new object storage bucket (S3) with your cloud provider of choice. Generate and make note of a shared key and secret for API access.
 
 Set up a distributed frontend cache, such as CloudFront, in front of the bucket. This will be where media files are served from.
 
 
-## DNS zone
+### DNS zone
 
 Register a new domain name with your registrar of choice, and set up a new zone with your hosting provider.
 
@@ -53,7 +53,7 @@ If desired, add a subdomain for the distributed frontend cache (e.g. `files.exam
 Verify the zone is resolving correctly, globally, before continuing. A good tool for this is https://dnschecker.org/
 
 
-## Git setup
+### Git setup
 
 Install `git`, and clone `mastodon-boilerplate` (this very repo) into a directory named after your site (replace `example.com`):
 
@@ -65,7 +65,7 @@ cd example.com
 ```
 
 
-## Bootstrap nginx and SSL
+### Bootstrap nginx and SSL
 
 Initially based on:
   https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71S
@@ -94,7 +94,7 @@ cd ..
 ```
 
 
-## Mastodon &amp; Friends
+### Mastodon &amp; Friends
 
 These steps assume you are back in the top-level directory of the `mastodon-boilerplate` repo.
 
@@ -133,6 +133,6 @@ exampleorg_streaming_1   /usr/bin/tini -- node ./st ...   Up (healthy)   3000/tc
 exampleorg_web_1         /usr/bin/tini -- bash -c r ...   Up (healthy)   3000/tcp, 4000/tcp
 ```
 
-To tail service logs for a named service (e.g. sidekiq, streaming, web): `docker-compose logs -f web`
+To tail service logs for a named service (e.g. `sidekiq`, `streaming`, `web`): `docker-compose logs -f web`
 
 To shut down everything: `docker-compose down`
