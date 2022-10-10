@@ -104,6 +104,7 @@ Just as in the previous step (but now with an additional section for the SSL set
 Use the official Mastodon Docker image to generate a config. Run Mastodon setup, and answer the interactive prompts.
 
 ```sh
+cp .env.production.example .env.production
 docker-compose run --rm web bundle exec rake mastodon:setup
 ```
 
