@@ -9,6 +9,7 @@ This repo contains instructions with boilerplate for setting up a single-user Ma
 * Uses cloud object storage with a distributed cache for serving media files.
 * Does not send mail.
 
+I mainly wrote these instructions for myself. Please don't come at me if your Mastodon isn't working!
 
 ### Host OS
 
