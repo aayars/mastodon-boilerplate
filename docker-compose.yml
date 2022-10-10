@@ -3,6 +3,7 @@ services:
   # nginx and certbot sections adapted from https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71
   nginx:
     image: nginx:alpine
+    restart: always
     depends_on:
       - web
       - streaming
@@ -20,6 +21,7 @@ services:
 
   certbot:
     image: certbot/certbot
+    restart: always
     depends_on:
       - nginx
     volumes:
@@ -28,8 +30,8 @@ services:
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 
   db:
-    restart: always
     image: postgres:14-alpine
+    restart: always
     shm_size: 256mb
     networks:
       - internal_network
@@ -41,8 +43,8 @@ services:
       - 'POSTGRES_HOST_AUTH_METHOD=trust'
 
   redis:
-    restart: always
     image: redis:7-alpine
+    restart: always
     networks:
       - internal_network
     healthcheck:
@@ -51,8 +53,8 @@ services:
       - ./data/redis:/data
 
   # es:
-  #   restart: always
   #   image: docker.elastic.co/elasticsearch/elasticsearch:7.17.4
+  #   restart: always
   #   environment:
   #     - "ES_JAVA_OPTS=-Xms512m -Xmx512m -Des.enforce.bootstrap.checks=true"
   #     - "xpack.license.self_generated.type=basic"
