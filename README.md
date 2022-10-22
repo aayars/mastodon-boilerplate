@@ -1,15 +1,15 @@
-## My Very Particular Minimally-Viable Docker Mastodon Setup
+## My Very Particular Minimally-Viable Path-of-Least-Resistance Docker Mastodon Setup
 
 Stop. Look at the date on this `README`, if there is one. If it's more than a year old, reconsider the common wisdom of continuing.
 
 This repo contains instructions with boilerplate for setting up a single-user Mastodon instance which:
 
-* Runs under `docker-compose`, including `nginx`. Only provisioning steps run on the host.
+* Runs under `docker-compose`, including `nginx`. Only provisioning steps and Docker run on the host.
 * Uses official pre-built images, no further building required.
 * Uses cloud object storage with a distributed cache for serving media files.
 * Does not send mail.
 
-I mainly wrote these instructions for myself. Please don't come at me if your Mastodon isn't working!
+I mainly wrote these instructions for myself, and they are cobbled together from all over the place. Please don't come at me if your Mastodon isn't working!
 
 ### Host OS
 
