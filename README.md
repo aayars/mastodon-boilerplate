@@ -118,6 +118,13 @@ docker-compose up -d
 
 If the stars aligned, you should have a running Mastodon instance with SSL support!
 
+### Kick the tires
+
+Things you might want to check:
+
+- Media uploads
+- Federation
+
 Helpful operational and troubleshooting commands (while in the top-level directory of the `mastodon-boilerplate` repo):
 
 To view cluster status: `docker-compose ps`.
