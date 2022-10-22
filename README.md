@@ -38,7 +38,7 @@ usermod -G sudo,docker mastodon
 
 ### Object storage and frontend cache
 
-Set up a new object storage bucket (S3) with your cloud provider of choice (e.g. `files.example.com`). Generate and make note of a shared key and secret for API access.
+Set up a new object storage bucket (e.g. `files.example.com`) with your cloud provider of choice (e.g. AWS S3, Wasabi). Generate and make note of a shared key and secret for API access.
 
 Set up a distributed frontend cache, such as CloudFront, in front of the bucket. This will be where media files are served from.
 
