@@ -60,7 +60,7 @@ Install `git`, and clone `mastodon-boilerplate` (this very repo) into a director
 
 ```sh
 su - mastodon
-sudo apt-get git
+sudo apt-get install git
 git clone https://github.com/aayars/mastodon-boilerplate.git example.com
 cd example.com
 ```
